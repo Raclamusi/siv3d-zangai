@@ -1,0 +1,1 @@
+- 端末の向きと動きの取得: https://raclamusi.github.io/siv3d-zangai/DeviceOrientation/
