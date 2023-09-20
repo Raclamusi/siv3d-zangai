@@ -7,9 +7,6 @@
 
 namespace DeviceMotion
 {
-	/// @brief 可能な場合、端末の動きを取得することに関しての許可を要求します。iOS 13 では許可が必要です。
-	void RequestPermission();
-
 	/// @brief 端末の動きを取得することに関しての許可の状態を返します。
 	/// @return 許可状態
 	[[nodiscard]]

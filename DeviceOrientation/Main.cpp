@@ -155,24 +155,5 @@ void Main()
 		{
 			camera.drawTouchUI();
 		}
-
-		// [許可の要求 (iOS 13)]
-		{
-			if (DeviceOrientation::Permission() != PermissionStatus::Granted)
-			{
-				if (SimpleGUI::Button(U"Allow access to device orientation", Vec2{ 20, Scene::Height() - 90 }, 400))
-				{
-					DeviceOrientation::RequestPermission();
-				}
-			}
-
-			if (DeviceMotion::Permission() != PermissionStatus::Granted)
-			{
-				if (SimpleGUI::Button(U"Allow access to device motion", Vec2{ 20, Scene::Height() - 50 }, 400))
-				{
-					DeviceMotion::RequestPermission();
-				}
-			}
-		}
 	}
 }

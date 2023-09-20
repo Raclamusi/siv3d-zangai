@@ -6,32 +6,11 @@ namespace DeviceOrientation
 {
 	namespace detail
 	{
-		[[maybe_unused]]
-		static int g_dummy = []
-		{
-			EM_ASM
-			(({
-				window.siv3dDeviceOrientation = {
-					permission: (typeof(DeviceOrientationEvent.requestPermission) === "function") ? "default" : "granted",
-					event: {},
-					setEvent: function () {
-						window.addEventListener("deviceorientation", event => this.event = event);
-					},
-				};
-
-				if (typeof(DeviceOrientationEvent.requestPermission) !== "function") {
-					siv3dDeviceOrientation.setEvent();
-				}
-			}));
-
-			return 0;
-		}();
-
 		EM_JS
 		(
 			void, DeviceOrientation_RequestPermission, (),
 			{
-				if (typeof(DeviceOrientationEvent.requestPermission) === "function") {
+				if (DeviceOrientationEvent.requestPermission) {
 					(async () => {
 						const permission = await DeviceOrientationEvent.requestPermission();
 						if (permission === "granted") {

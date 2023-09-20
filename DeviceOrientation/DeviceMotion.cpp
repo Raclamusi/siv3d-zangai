@@ -8,33 +8,11 @@ namespace DeviceMotion
 {
 	namespace detail
 	{
-		[[maybe_unused]]
-		static int g_dummy = []
-		{
-			EM_ASM
-			(({
-				window.siv3dDeviceMotion = {
-					permission: (typeof(DeviceMotionEvent.requestPermission) === "function") ? "default" : "granted",
-					is_iOS: (/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)),
-					event: {},
-					setEvent: function () {
-						window.addEventListener("devicemotion", event => this.event = event);
-					},
-				};
-
-				if (typeof(DeviceMotionEvent.requestPermission) !== "function") {
-					siv3dDeviceMotion.setEvent();
-				}
-			}));
-
-			return 0;
-		}();
-
 		EM_JS
 		(
 			void, DeviceMotion_RequestPermission, (),
 			{
-				if (typeof(DeviceMotionEvent.requestPermission) === "function") {
+				if (DeviceMotionEvent.requestPermission) {
 					(async () => {
 						const permission = await DeviceMotionEvent.requestPermission();
 						if (permission === "granted") {

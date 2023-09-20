@@ -2,6 +2,7 @@
 
 # include <Siv3D.hpp>
 # include "DeviceOrientation.hpp"
+# include "ScreenOrientation.hpp"
 
 DeviceLinkedCamera3D::DeviceLinkedCamera3D(double verticalFOV, const Vec3& eyePosition, const Rotation& offsetRotation, double nearClip) noexcept
 	: BasicCamera3D(Scene::Size(), verticalFOV, eyePosition, Vec3{ 0, 0, 0 }, Vec3{ 0, 1, 0 }, nearClip)
@@ -27,7 +28,8 @@ void DeviceLinkedCamera3D::updateOrientation()
 	beta += m_offset.beta;
 	gamma += m_offset.gamma;
 
-	const auto orientation = Quaternion::RollPitchYaw(-beta, -alpha, -gamma);
+	const double screenAngle = ScreenOrientation::Angle();
+	const auto orientation = (Quaternion::RotateY(screenAngle) * Quaternion::RollPitchYaw(-beta, -alpha, -gamma));
 	const Vec3 focusVector = (orientation * Float3{ 0, -1, 0 });
 	const Vec3 upDirection = (orientation * Float3{ 0, 0, 1 });
 
