@@ -2,18 +2,18 @@
 
 # include <Siv3D/Types.hpp>
 
-/// @brief •¶‘‚ÌŒü‚«
+/// @brief æ–‡æ›¸ã®å‘ã
 enum class ScreenOrientationType : s3d::uint8
 {
-	/// @brief 1‚Â–Ú‚Ìƒ|[ƒgƒŒ[ƒgi‰¡’·jƒ‚[ƒh
+	/// @brief 1ã¤ç›®ã®ãƒãƒ¼ãƒˆãƒ¬ãƒ¼ãƒˆï¼ˆæ¨ªé•·ï¼‰ãƒ¢ãƒ¼ãƒ‰
 	PortraitPrimary,
 
-	/// @brief 2‚Â–Ú‚Ìƒ|[ƒgƒŒ[ƒgi‰¡’·jƒ‚[ƒh
+	/// @brief 2ã¤ç›®ã®ãƒãƒ¼ãƒˆãƒ¬ãƒ¼ãƒˆï¼ˆæ¨ªé•·ï¼‰ãƒ¢ãƒ¼ãƒ‰
 	PortraitSecondary,
 
-	/// @brief 1‚Â–Ú‚Ìƒ‰ƒ“ƒhƒXƒP[ƒvic’·jƒ‚[ƒh
+	/// @brief 1ã¤ç›®ã®ãƒ©ãƒ³ãƒ‰ã‚¹ã‚±ãƒ¼ãƒ—ï¼ˆç¸¦é•·ï¼‰ãƒ¢ãƒ¼ãƒ‰
 	LandscapePrimary,
 
-	/// @brief 2‚Â–Ú‚Ìƒ‰ƒ“ƒhƒXƒP[ƒvic’·jƒ‚[ƒh
+	/// @brief 2ã¤ç›®ã®ãƒ©ãƒ³ãƒ‰ã‚¹ã‚±ãƒ¼ãƒ—ï¼ˆç¸¦é•·ï¼‰ãƒ¢ãƒ¼ãƒ‰
 	LandscapeSecondary,
 };

@@ -4,13 +4,13 @@
 
 namespace ScreenOrientation
 {
-	/// @brief •¶‘‚ÌŒü‚«‚ð•Ô‚µ‚Ü‚·B
-	/// @return •¶‘‚ÌŒü‚«
+	/// @brief æ–‡æ›¸ã®å‘ãã‚’è¿”ã—ã¾ã™ã€‚
+	/// @return æ–‡æ›¸ã®å‘ã
 	[[nodiscard]]
 	ScreenOrientationType Type();
 
-	/// @brief •¶‘‚ÌŒü‚«‚ÌŠp“x‚ð•Ô‚µ‚Ü‚·B
-	/// @return •¶‘‚ÌŒü‚«‚ÌŠp“x [rad]
+	/// @brief æ–‡æ›¸ã®å‘ãã®è§’åº¦ã‚’è¿”ã—ã¾ã™ã€‚
+	/// @return æ–‡æ›¸ã®å‘ãã®è§’åº¦ [rad]
 	[[nodiscard]]
 	double Angle();
 }

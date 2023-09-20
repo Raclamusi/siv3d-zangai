@@ -4,32 +4,32 @@
 
 namespace ScreenOrientation
 {
-    namespace detail
-    {
-        EM_JS
+	namespace detail
+	{
+		EM_JS
 		(
-            ScreenOrientationType, ScreenOrientation_GetType, (),
+			ScreenOrientationType, ScreenOrientation_GetType, (),
 			{
 				return ["portrait-primary", "portrait-secondary", "landscape-primary", "landscape-secondary"].indexOf(screen.orientation.type);
 			}
 		);
-        
-        EM_JS
+
+		EM_JS
 		(
-            double, ScreenOrientation_GetAngle, (),
+			double, ScreenOrientation_GetAngle, (),
 			{
 				return (window.orientation ?? screen.orientation.angle) * (Math.PI / 180);
 			}
 		);
-    }
+	}
 
-    ScreenOrientationType Type()
-    {
-        return detail::ScreenOrientation_GetType();
-    }
+	ScreenOrientationType Type()
+	{
+		return detail::ScreenOrientation_GetType();
+	}
 
-    double Angle()
-    {
-        return detail::ScreenOrientation_GetAngle();
-    }
+	double Angle()
+	{
+		return detail::ScreenOrientation_GetAngle();
+	}
 }
