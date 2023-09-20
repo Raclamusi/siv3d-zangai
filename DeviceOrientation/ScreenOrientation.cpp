@@ -18,7 +18,7 @@ namespace ScreenOrientation
 		(
             double, ScreenOrientation_GetAngle, (),
 			{
-				return screen.orientation.angle * (Math.PI / 180);
+				return (window.orientation ?? screen.orientation.angle) * (Math.PI / 180);
 			}
 		);
     }
