@@ -82,10 +82,14 @@ void Main()
 				{
 					longPress = false;
 
-					const double focusOffsetAlpha = -DeviceOrientation::Orientation().alpha;
-					const double eyeOffsetAlpha = -camera.getEyePosition().xz().getAngle(Vec2{ 0, -1 });
+					if (const auto eyePos = camera.getEyePosition().xz(); not eyePos.isZero())
+					{
+						const auto focusPos = camera.getFocusPosition().xz();
+						const auto focusVec = ((focusPos == eyePos) ? camera.getUpDirection().xz() : (focusPos - eyePos));
+						const double offsetAlpha = (camera.getOffset().alpha + focusVec.getAngle(-eyePos));
 
-					camera.setOffset(Rotation{ (focusOffsetAlpha + eyeOffsetAlpha), 0, 0 });
+						camera.setOffset(Rotation{ offsetAlpha, 0, 0 });
+					}
 				}
 			}
 
