@@ -229,7 +229,7 @@ void Main()
 						pos.x = 30;
 						pos.y += font.height(fontSize);
 						advance = advances[i];
-						start += text.clusters[i].pos;
+						start = text.clusters[i].pos;
 					}
 				}
 				font(s.substr(start)).draw(fontSize, pos);
