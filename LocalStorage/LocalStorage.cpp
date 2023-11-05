@@ -112,7 +112,7 @@ namespace LocalStorage
 
 	void RemoveItem(const String& key)
 	{
-		RemoveItem(key.c_str());
+		detail::RemoveItem(key.c_str());
 	}
 
 	std::size_t Length()
